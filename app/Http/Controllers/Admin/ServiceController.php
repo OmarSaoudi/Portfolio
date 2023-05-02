@@ -13,8 +13,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('id', 'asc')->paginate(5);
-        return view('frontend.pages.services', compact('services'));
+        //
     }
 
 
@@ -29,6 +28,7 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function store(Request $request)
     {
         //
@@ -37,6 +37,7 @@ class ServiceController extends Controller
     /**
      * Display the specified resource.
      */
+
     public function show(Service $service)
     {
         //

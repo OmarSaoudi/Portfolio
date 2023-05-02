@@ -3,12 +3,13 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Frontend\TeamController as FrontendTeamController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Frontend\GalleryController as FrontendGalleryController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Frontend\ServiceController as FrontendServiceController;
 use App\Http\Controllers\Frontend\WelcomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,7 @@ Route::get('/admin/login', [AdminController::class, 'login'])->name('admin.login
 Route::post('/frontend/contact', [ContactController::class, 'store'])->name('frontend.contact');
 Route::get('/frontend/teams', [FrontendTeamController::class, 'index']);
 Route::get('/frontend/galleries', [FrontendGalleryController::class, 'index']);
+Route::get('/frontend/services', [FrontendServiceController::class, 'index']);
 
 
 Route::get('/dashboard', function () {
@@ -43,9 +45,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::resource('services', ServiceController::class);
-
-
 Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
@@ -55,6 +54,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::resource('/contacts', ContactController::class)->only(['index', 'destroy']);
     Route::resource('/teams', TeamController::class);
     Route::resource('/galleries', GalleryController::class);
+    Route::resource('/services', ServiceController::class);
 
 });
 

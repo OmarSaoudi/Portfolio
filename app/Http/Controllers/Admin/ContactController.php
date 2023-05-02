@@ -24,6 +24,7 @@ class ContactController extends Controller
         $contact->description = $request->description;
         $contact->save();
 
+        alert()->success('SuccessAlert','Thank you for contact us.');
         return redirect()->route('frontend.welcome')->with('message','Thank you So Much');
 
     }

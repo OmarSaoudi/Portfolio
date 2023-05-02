@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         Setting::factory(1)->create();
         Contact::factory(20)->create();
-        Team::factory(2)->create();
-        Service::factory(1)->create();
+        Team::factory(3)->create();
+        Service::factory(9)->create();
         Gallery::factory(6)->create();
 
     }

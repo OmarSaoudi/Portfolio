@@ -6,6 +6,8 @@
 
   </head>
   <body>
+    
+    @include('sweetalert::alert')
 
     @include('frontend.layouts.main-headerbar')
 

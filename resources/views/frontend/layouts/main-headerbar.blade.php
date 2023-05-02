@@ -3,9 +3,9 @@
     <div class="container">
       <a href="{{ url('/') }}" class="logo">{{ $settings->name }}</a>
       <ul class="main-nav">
+        <li><a href="{{ url('/frontend/services') }}">Services</a></li>
         <li><a href="{{ url('/frontend/teams') }}">Team Members</a></li>
         <li><a href="{{ url('/frontend/galleries') }}">Gallery</a></li>
-        <li><a href="#features">Features</a></li>
 
         @if (Route::has('login'))
             @auth
