@@ -52,6 +52,7 @@ Route::middleware(['auth','role:admin'])->prefix('admin')->group(function () {
     Route::post('/profile/store', [AdminController::class, 'store'])->name('admin.profile.store');
     Route::resource('/settings', SettingController::class)->only(['index', 'update']);
     Route::resource('/contacts', ContactController::class)->only(['index', 'destroy']);
+    Route::post('delete_all_c', [ContactController::class, 'delete_all_c'])->name('delete_all_c');
     Route::resource('/teams', TeamController::class);
     Route::resource('/galleries', GalleryController::class);
     Route::resource('/services', ServiceController::class);

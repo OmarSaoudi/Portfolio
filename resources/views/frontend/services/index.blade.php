@@ -13,7 +13,7 @@
         <i class="fas fa-tools fa-4x"></i>
         <h3>{{ $service->name }}</h3>
         <div class="info">
-          <a href="{{ $service->link }}">Details</a>
+          <a href="{{ $service->link }}" target="_blanck">Details</a>
         </div>
       </div>
       @endforeach

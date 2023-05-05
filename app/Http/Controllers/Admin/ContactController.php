@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -23,8 +24,7 @@ class ContactController extends Controller
         $contact->phone = $request->phone;
         $contact->description = $request->description;
         $contact->save();
-
-        alert()->success('SuccessAlert','Thank you for contact us.');
+        alert()->success('Thank you for contact us.');
         return redirect()->route('frontend.welcome')->with('message','Thank you So Much');
 
     }
@@ -41,4 +41,5 @@ class ContactController extends Controller
         Contact::whereIn('id', $delete_all_id)->delete();
         return redirect()->route('contacts.index');
     }
+
 }
